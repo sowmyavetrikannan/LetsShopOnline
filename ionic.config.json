@@ -1,0 +1,7 @@
+{
+  "name": "letsShopOnline",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

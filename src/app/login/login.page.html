@@ -1,0 +1,51 @@
+<ion-content class="ion-no-padding">
+  <div class="main">
+    <ion-card class="ion-no-margin">
+      <ion-card-content>
+        <ion-row class="row">
+          <div class="fire-logo">
+            <img src="assets/logo.png" class="img-logo">
+            <ion-text>
+              <h2 class="ion-text-center ion-no-margin ion-margin-vertical">Welcome to Firebase Auth</h2>
+            </ion-text>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="email" placeholder="Email" [(ngModel)]="email" class="input ion-padding-horizontal"
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="password" placeholder="Password" [(ngModel)]="password" class="input ion-padding-horizontal"
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="login()" color="undefined" class="transition">
+              <strong class="white">
+                Login</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="error ion-text-center">{{error}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="block ion-text-center">Don't have an account yet ?
+              <span class="bold cursor-pointer remove-outline" routerLink="/register">Sign up here</span></ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="block bold ion-text-center cursor-pointer remove-outline" routerLink="/forgot-password">Forgot Password</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
