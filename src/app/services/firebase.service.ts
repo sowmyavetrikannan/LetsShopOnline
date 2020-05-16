@@ -32,23 +32,14 @@ export class FirebaseService {
     })
   }
 
-  retrieveCategoriesList(){
+  retrieveList(fromCollection){
     return new Promise<any>((resolve, reject) => {
       // let currentUser = firebase.auth().currentUser;
     
-      firebase.firestore().collection('Categories').get().then(
+      firebase.firestore().collection(fromCollection).get().then(
         res => resolve(res),
         err => reject(err)
       )
-      // firebase.firestore().collection('people').doc(currentUser.uid).collection('tasks').add({
-      //   title: value.title,
-      //   description: value.description,
-      //   image: value.image
-      // })
-      // .then(
-      //   res => resolve(res),
-      //   err => reject(err)
-      // )
     })
   }
 }
