@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">ask-us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <div class="main">
+    <ion-card class="ion-no-margin">
+      <ion-card-content>
+        <ion-row>
+          <div class="fire-logo">
+            <img src="assets/logo-small.png" class="img-logo">
+            <ion-text>
+              <h2 class="ion-text-center ion-no-margin ion-margin-vertical">We have a solution for your every Query. Just upload an Image or send us a voice note. Our experts will get back to you..!</h2>
+            </ion-text>
+          </div>
+        </ion-row>
+        <!-- <ion-row>
+          <ion-col>
+            <ion-input clearInput type="text" placeholder="Title" class="input ion-padding-horizontal"
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row> -->
+        <ion-row>
+          <ion-col>
+            <ion-textarea rows="6" cols="20" placeholder="Enter more information here..." [(ngModel)]="query" 
+            class="input ion-padding-horizontal" auto-grow="true"></ion-textarea>
+
+        
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-text-center">
+          <ion-col>
+            <i (click)="takePicture()" class="camera icon large"></i>
+            <i class="microphone icon large"></i>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="sendQuery()" color="undefined" class="transition">
+              <strong class="white">
+                Send</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="error ion-text-center">{{error}}</ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+

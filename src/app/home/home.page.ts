@@ -14,8 +14,9 @@ export class HomePage {
   slideOptions = {
     initialSlide: 0,
     slidesPerView: 1,
+    speed: 1000,
     autoplay: {
-      disableOnInteraction: true
+      disableOnInteraction: false
     }
   };
 
@@ -36,22 +37,22 @@ export class HomePage {
     this.firebaseService.retrieveList("Categories").
     then(data => {
       // Declare an array which we'll use to store retrieved documents
-      let obj : any = [];
+      // let obj : any = [];
 
 
-      // Iterate through each document, retrieve the values for each field
-      // and then assign these to a key in an object that is pushed into the 
-      // obj array
-      data.forEach((doc : any) => 
-      {
-          obj.push({
-            id : doc.id,
-            title : doc.data().title,
-            image : doc.data().image
-          });
-      });
-      this.categories = obj;
-      console.log(obj);
+      // // Iterate through each document, retrieve the values for each field
+      // // and then assign these to a key in an object that is pushed into the 
+      // // obj array
+      // data.forEach((doc : any) => 
+      // {
+      //     obj.push({
+      //       id : doc.id,
+      //       title : doc.data().title,
+      //       image : doc.data().image
+      //     });
+      // });
+      this.categories = data;
+      console.log(data);
       this.alertService.closeLoading();
     })
     .catch(error => {
@@ -62,24 +63,9 @@ export class HomePage {
     this.alertService.openLoader();
     this.firebaseService.retrieveList("news").
     then(data => {
-      // Declare an array which we'll use to store retrieved documents
-      let obj : any = [];
-
-
-      // Iterate through each document, retrieve the values for each field
-      // and then assign these to a key in an object that is pushed into the 
-      // obj array
-      data.forEach((doc : any) => 
-      {
-          obj.push({
-            id : doc.id,
-            title : doc.data().title,
-            description : doc.data().description,
-            image : doc.data().image
-          });
-      });
-      this.news = obj;
-      console.log(obj);
+      
+      this.news = data;
+      console.log(data);
       this.alertService.closeLoading();
     })
     .catch(error => {
@@ -90,17 +76,4 @@ export class HomePage {
   slidesDidLoad(slides: IonSlides) {
     slides.startAutoplay();
   }
-
-  // add(name: string, email: string) {
-  //     return firebase.firestore().collection('contacts').doc(email).set({name, email});
-    
-
-  // }
-  // get() {
-    
-  //   return firebase.firestore().collection('contacts').get();
-  // }
-  
-   
-
 }

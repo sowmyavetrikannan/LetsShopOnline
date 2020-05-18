@@ -1,50 +1,26 @@
 
-
 <ion-content>
-
-  
-
-  <ion-grid class="grid">
+  <ion-content *ngIf="news.length >0" style="height:30%;">
+    <!-- <ion-grid> -->
       <ion-slides [options]="slideOptions">
         <ion-slide *ngFor="let item of news">
-           <img src="{{item.image}}">
+            <img src="{{item.image}}">
         </ion-slide>
       </ion-slides>
-  </ion-grid>
-    <!-- first row -->
-    <!-- second-row -->
-
-    <ion-grid class="grid-3-column">
-      <ng-container *ngFor="let category of categories">
-        <div class="default-margin ion-text-center">
-          
-            <img class="ui medium circular image" src="{{category.image}}" />
-          
-            <p class="text-over-img">{{category.title}}</p>
-          
-        </div>
-      
-      </ng-container>
-    </ion-grid>
-
-  
-    <!-- <ion-content>
-      <ion-card *ngFor="let category of categories">
-          <ion-list>
-              <ion-item>
-                  <ion-thumbnail item-left>
-                      <img src="assets/logo.png">
-                  </ion-thumbnail>
-                  <p class="heading">{{category.title}}</p>
-
-              </ion-item>
-          </ion-list>
-      </ion-card>
+    <!-- </ion-grid> -->
   </ion-content>
-
-<ion-button expand="block" (click)="retrieveCategories()" class="transition">
-  <strong>
-    Get</strong></ion-button> -->
-  </ion-content>
+  <ion-grid>
+    <ion-row >      
+         <ion-col *ngFor="let category of categories" size="4" routerLink="/{{category.id}}">
+            <div style="height:80%;">
+              <img class="ui tiny centered image" src="{{category.image}}" />
+            </div>
+            <div class="ion-text-center"  style="height:20%;">
+              <ion-text class="ion-text-nowrap">{{category.title}}</ion-text>                
+            </div>
+         </ion-col> 
+    </ion-row>  
+</ion-grid>
+</ion-content>
 
 
